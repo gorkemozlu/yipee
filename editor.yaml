@@ -17,7 +17,7 @@ spec:
     name: backend-5000
     protocol: TCP
     nodePort: 32006
-  type: LoadBalancer
+  type: NodePort
 
 ---
 apiVersion: v1
