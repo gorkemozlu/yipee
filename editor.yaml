@@ -17,7 +17,7 @@ spec:
     name: backend-5000
     protocol: TCP
     nodePort: 32006
-  type: NodePort
+  type: LoadBalancer
 
 ---
 apiVersion: v1
@@ -55,7 +55,7 @@ spec:
       imagePullSecrets: []
       containers:
       - name: yipee-ui
-        image: yipeeio/ui:2.0
+        image: harbor.pks.migros.local/poc/yipeeui:2.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
@@ -93,13 +93,13 @@ spec:
         # env:
         #   - name: YIPEE_INSTALL_TYPE
         #     value: static
-        image: yipeeio/api:2.0.1
+        image: harbor.pks.migros.local/poc/yipeeapi:2.0.1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
           protocol: TCP
       - name: yipee-converter
-        image: yipeeio/converter:2.0
+        image: harbor.pks.migros.local/poc/yipeeconverter:2.0
         imagePullPolicy: IfNotPresent
       restartPolicy: Always
     metadata:
