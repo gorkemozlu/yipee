@@ -95,7 +95,7 @@ spec:
       imagePullSecrets: []
       containers:
       - name: yipee-ui
-        image: yipeeio/ui:2.0
+        image: harbor.pks.migros.local/poc/yipeeui:2.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
@@ -139,7 +139,7 @@ spec:
         - containerPort: 5000
           protocol: TCP
       - name: yipee-converter
-        image: yipeeio/converter:2.0
+        image: harbor.pks.migros.local/poc/yipeeapi:2.0.1
         imagePullPolicy: IfNotPresent
       restartPolicy: Always
       serviceAccountName: yipee-service-account
